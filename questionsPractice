@@ -1,0 +1,207 @@
+2>
+select c.first_name, 
+c.contact ,
+a.balance 
+from customer c 
+join amount a on c.customer_id=a.customer_id 
+join account_type at on a.account_tye_id=at.account_type_id 
+where at.account_type_name like 'sa%'
+order by c.first_name;
+
+
+3> anki
+select ef.empid, ef.empname, si.basic, er.netpay
+ from employee_info ef join salary_info si on ef.employee_category=si.employe_category
+join emp_sd er on er.empiid=ef.empid
+where si.basic>5000;
+
+4>anki
+select 
+empid as "employee Id",
+ empname as "employee Name" from 
+employee_info 
+where yrs_of_exp >5 AND 
+joining_dt >'2001-01-01'; 
+
+
+5> anki
+select
+ c.course_id as "Course ID,
+ c.name as "Course Name",
+ s.day as "Day",
+ s.starttime as "Start Time"
+from
+ course c 
+join section st on c.course_id =st.course_id
+join schedule s on s.schedule_id=st.schedule_id
+where s.day="Wed";
+
+
+6>anki
+select Title,Price,ISBN from books 
+where publishdate>'1940-01-01;
+AND category='c102';
+
+7>
+select c.categoryId,c.categoryname from chem c 
+where c.name like 'M%';
+
+8> anki ankii
+
+select td.train_id ,td.train_name 
+from train_details_tdl td 
+join train_stations_tbl ts on td.train_to=ts.station_id
+where td.train_name like 'M%'
+AND ts.station_name='PUNE';
+
+
+9>
+select 
+EMPID,
+LEAVE_TYPE,
+TOTAL_LEAVES 
+from 
+emp_leave_info
+where TOTAL_LEAVE>10 
+AND LEAVE_TYPE ='Caual Leave' or LEAVE_TYPE='Medical Leave'; 
+AND LEAVE_TYPE in ('casual leave','medical leave');
+
+
+10>
+select 
+ei.EMPID,
+ei.EMPNAME,
+di.DEPARTMENT,
+si.BASIC
+from employee_info ei 
+join dept_info di 
+on ei.DEPTID=di.DEPTID
+join salary_info si
+ on ei.employee_category=si.employee.category
+where di.DEPARTMENT='HR';
+
+
+
+11>
+select ei.EMPID,ei.ENAME, di.DEPARTNAME,si.HOUSE_RENT_ALLOWENCE 
+from employee_info ei 
+join dept_info di on  ei.DEPTID=di.DEPTID
+join salary_info si on ei.EMPLOYEE_CATEGORY=SI.EMPLOYEE_CATEGORY
+where di.DEPATNAME in ('BANGALORE','COCHIN');
+
+
+12> ankii ankii
+
+select Account_Type_ID ,
+avg(balance) as "Average" 
+from account
+group by Account_type_id
+having avg(balance) >=50000;
+
+
+13>
+select c.first_name,c.last_name,a.account_id 
+from customer c join account a on a.customer_id=c.customer_id
+where a.balance >=5000;
+
+
+14>
+select first name as"Staff First Name" ,Postion,Salary from staff members 
+where salary>50000;
+
+
+15>ankii ankii 
+
+select full name as"PatientName" ,email as"PatientEmail" ,admission date as"AdmissionDate" ,total billing amount as"TotalBilling" from patient
+where bill is null
+order by TotalBilling desc;
+
+16>
+select f.fligh_id,f.departuredate,f.departuretime 
+from flight f
+join airplane ap on f.airplane_id=ap.airplane_id 
+join airline ar on ap.airline_id=ar.airline_id
+where ar.name='Singapore Airlines';
+
+
+17>
+select airplane_id ,modelnumber from airplane 
+where manufacture ='airbus';
+
+18>ankii ankiii
+
+select s.lastname from student s join 
+register r on s.student_id=r.student_id
+where r.reg_date like '2012%';
+
+
+19>
+select 
+c.containcre,
+c.firstname,
+c.lastname,
+c.cont,
+f.flightid 
+from 
+captaincrew c
+join fligh f
+ on c.flightid=f.flightid
+where c.firstname like 'A%'
+ AND f.flightid like'%1';
+
+20>
+ankii ankiii
+
+select 
+f.flighted,
+totalpassengers,totalbaggage 
+
+
+
+21>ankii ankii
+ 
+22>
+
+23>ankii (why distinct)
+select p.firstname,p.contact from passenger p join bro ar on p.pssid=paadid
+join flight f on br.flightid=f.figtid 
+where f.flightfrom='hong kong' and f.flightif=4 and br.mael='veg';
+
+
+24>ankiii(why distinct)
+select
+ p.productid,p.name 
+
+from product p join order_item oi on p.productid=oi.productid
+join orderdeliv od on oi.orderdelid=od.orderdelid
+where od.status='transit hub';
+
+
+25>ankii
+select
+artistid,name from atist where
+ name like'%0%' or
+name like '%1%';
+
+26>
+select 
+messageid.content 
+from message 
+where content like'%hello%';
+
+27>ankiii
+
+select concat(firstname," ", lastname) as name,licence number,platenumber from driver 
+where vehicle ='in use' and platenumber like'%0';
+
+28>ankii 
+select d.licnum,d.vehid,d.rating,b.bokoino from driver join bokking b on d.id=b.id
+where d.rating>=4.5 and b.status !='cancelled';
+
+29>ankii (count * why used?)
+30>ankii 
+
+select  f.flighted,
+p.passe,
+m.begg from flight f join man m on f.flightid=m.flightid join passenger p on m.passendid=p.passenderif 
+where f.fihht from="prise and f.adate="21-55-44'
