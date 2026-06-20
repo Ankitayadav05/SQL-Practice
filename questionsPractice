@@ -173,10 +173,21 @@ totalpassengers,totalbaggage
  
 22>
 
-23>ankii (why distinct)
-select p.firstname,p.contact from passenger p join bro ar on p.pssid=paadid
-join flight f on br.flightid=f.figtid 
-where f.flightfrom='hong kong' and f.flightif=4 and br.mael='veg';
+23>SELECT DISTINCT 
+    p.FIRST_NAME, 
+    p.CONTACT 
+FROM  
+    passenger p 
+JOIN  
+    boardingpass bp  
+    ON p.PASSENGER_ID = bp.PASSENGER_ID 
+JOIN  
+    flight f  
+    ON bp.FLIGHT_ID = f.FLIGHT_ID 
+WHERE  
+    f.FLIGHT_FROM = 'Hong Kong' 
+    AND bp.FLIGHT_ID = 4 
+    AND bp.MEAL = 'Vegetarian'; 
 
 
 24>ankiii(why distinct)
